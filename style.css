@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(background.jpg);
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+}
+
+main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1200px) auto;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+#bar_container {
+  grid-column: 2/3;
+  grid-row: 2;
+}
+
+h1 {
+  color: #d904b5;
+  font-family: "Shizuru", cursive;
+  font-size: 5em;
+}
+
+/*monochrome colorpalette
+dark: 
+#8c034e
+#A6036D
+#BF048D
+#d904b5
+#F23DE6
+*/
+
+#bars {
+  display: flex;
+  padding-block: 1rem 0rem;
+  background-color: rgba(0, 0, 0, 0.712);
+}
+
+.bar {
+  background-color: #d904b5;
+  margin: 0.1rem;
+  width: 30px;
+  height: 100px;
+}
