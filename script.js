@@ -1,23 +1,39 @@
 "use strict";
 
+let array = [];
+let counter = 0;
+
 window.addEventListener("load", init);
 
-const model = [
-  8, 12, 32, 4, 13, 24, 23, 22, 1, 0, 30, 7, 3, 6, 3, 19, 24, 29, 14, 16, 3, 1,
-  9, 8, 30, 12, 0, 30, 7, 3, 6, 3, 19, 24, 29, 14, 4, 1, 18, 1,
-];
+function init() {
+  setTimeout(loop, 500);
+}
 
-/* const queueSize = getNumberOfCustomers; */
+function loop() {
+  const queueSize = getNumberOfCustomers();
+  console.log("array", array);
 
-function init() {}
+  if (counter < 40) {
+    array.unshift(queueSize);
+    counter++;
+    createNewBar();
+  } else {
+    array.length = 39;
+    array.unshift(queueSize);
+    createNewBar();
+  }
 
-function loop() {}
+  init();
+}
 
 function getNumberOfCustomers() {
-  //FAKE: gives a random number of guests
+  //gives a random number (max 32) of guests
   return Math.floor(Math.random() * 32);
 }
 
-function displayData() {}
-
-function modifyModel() {}
+function createNewBar() {
+  const newBar = document.querySelector("#bars");
+  newBar.innerHTML += `<div class="bar" style= "height: ${
+    (array[0] / 32) * 100
+  }%;"></div>`;
+}
